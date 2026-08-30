@@ -5,6 +5,8 @@ import About from "./pages/About";
 import Login from "./features/auth/Login";
 import Register from "./features/auth/Register";
 import Layout from "./layouts/Layout";
+import ManageAccounts from "./features/managing/ManageAccounts";
+import ManageTransactions from "./features/managing/ManageTransactions";
 
 function App() {
 
@@ -16,6 +18,8 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route element={<RequireAuth />}>
           <Route path="/" element={<Home />} />
+          <Route path="/manage/accounts" element={<ManageAccounts />} />
+          <Route path="/manage/transactions" element={<ManageTransactions />} />
         </Route>
       </Route>
     </Routes>

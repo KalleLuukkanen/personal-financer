@@ -1,7 +1,7 @@
-function Holdings() {
+function Goals() {
     return (
         <div className="space-y-2">
-            <p className="text-xl">Holdings</p>
+            <p className="text-xl">Goals</p>
             <div className="ml-2 text-lg">
                 <p>Käyttötili: summa</p>
                 <p>Sijoitukset: summa</p>
@@ -11,4 +11,4 @@ function Holdings() {
     )
 }
 
-export default Holdings;
+export default Goals;
