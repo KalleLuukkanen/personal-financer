@@ -8,7 +8,7 @@ function Layout() {
     if (!userState.email) {
         return (
             <div className="flex flex-col min-h-screen">
-                <main className="flex-1 p-4 bg-gray-100">
+                <main className="flex-1 p-4">
                     <Outlet />
                 </main>
             </div>
@@ -18,7 +18,7 @@ function Layout() {
     return (
         <div className="flex flex-col min-h-screen">
             <Header />
-            <main className="flex-1 p-4 bg-gray-100">
+            <main className="flex-1 p-4">
                 <Outlet />
             </main>
         </div>
