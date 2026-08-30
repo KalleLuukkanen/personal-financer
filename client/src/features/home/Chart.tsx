@@ -1,9 +1,7 @@
+import filler from "../../assets/filler_mf.png";
+
 function Chart() {
-    return (
-        <div>
-            <a className="text-2xl">Chart</a>
-        </div>
-    )
+    return <img src={filler} alt="filler" />;
 }
 
 export default Chart;
