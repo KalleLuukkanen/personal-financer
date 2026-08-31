@@ -1,0 +1,6 @@
+CREATE TABLE "account_balance_history" (
+    id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    account_id INTEGER NOT NULL REFERENCES accounts(id),
+    balance NUMERIC(12, 2) NOT NULL,
+    recorded_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
