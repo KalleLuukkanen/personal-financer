@@ -18,8 +18,8 @@ function FullHoldings() {
             </div>
 
             <div className="text-xl">
-                <p>Balance in full: {showingAmounts ? holdingsBalance : "****"}</p>
-                <p>Goal in full: {showingAmounts ? holdingsGoals : "****"}</p>
+                <p>Balances in full: {showingAmounts ? Number(holdingsBalance).toFixed(2) : "****"}</p>
+                <p>Goals in full: {showingAmounts ? Number(holdingsGoals).toFixed(2) : "****"}</p>
             </div>
             {accounts.length > 0 &&
                 <ul className="flex flex-wrap gap-4">

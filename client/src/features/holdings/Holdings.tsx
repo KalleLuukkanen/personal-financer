@@ -18,16 +18,6 @@ function Holdings() {
                             )}
                         </ul>
                     </div>
-                    <div className="space-y-2">
-                        <p className="text-xl">Goals</p>
-                        <ul className="ml-2 text-lg">
-                            {accounts.map((a) =>
-                                <li key={a.id}>
-                                    <p>{a.name}: {a.goal}</p>
-                                </li>
-                            )}
-                        </ul>
-                    </div>
                 </div>
             }
             {accounts.length === 0 && <p>You haven't added any holdings yet, click above to get started!</p>}
