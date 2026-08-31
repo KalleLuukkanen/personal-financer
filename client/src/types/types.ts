@@ -5,6 +5,8 @@ export type AccountType = {
     goal: number | null;
 };
 
+export type AccountInput = Omit<AccountType, "id">;
+
 export type TransactionType = {
     id: number;
     source: string;
@@ -12,3 +14,5 @@ export type TransactionType = {
     amount: number;
     created_at: string;
 };
+
+export type TransactionInput = Omit<TransactionType, "id">;

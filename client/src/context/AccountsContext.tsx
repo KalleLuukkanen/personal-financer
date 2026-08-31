@@ -1,11 +1,11 @@
 import { createContext, useContext, useState, useEffect, useRef, type ReactNode } from "react";
 import * as accountsApi from "../api/accountsApi";
-import type { AccountType } from "../types/types";
+import type { AccountType, AccountInput } from "../types/types";
 
 type AccountsContextValue = {
     accounts: AccountType[];
     getAccount: (id: number) => AccountType | null;
-    createAccount: (account: AccountType) => Promise<void>;
+    createAccount: (account: AccountInput) => Promise<void>;
     deleteAccount: (id: number) => Promise<void>;
     deleteAllAccounts: () => Promise<void>;
     updateBalance: (id: number, balance: number) => Promise<void>;
@@ -28,7 +28,7 @@ export function AccountsProvider({ children }: { children: ReactNode }) {
         return accounts?.find((a) => a.id === id) ?? null;
     };
 
-    const createAccount: AccountsContextValue["createAccount"] = async (account: AccountType) => {
+    const createAccount: AccountsContextValue["createAccount"] = async (account: AccountInput) => {
         const created = await accountsApi.create(account);
         setAccounts((prev) => [...prev, created]);
     };

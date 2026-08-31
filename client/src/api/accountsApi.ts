@@ -1,5 +1,5 @@
 const BASE_URL = `${import.meta.env.VITE_API_URL}/api/accounts`;
-import type { AccountType } from "../types/types";
+import type { AccountInput } from "../types/types";
 
 const getAll = async () => {
     const response = await fetch(BASE_URL, {
@@ -43,7 +43,7 @@ const deleteAll = async () => {
     return await response.json();
 };
 
-const create = async (account: AccountType) => {
+const create = async (account: AccountInput) => {
     const response = await fetch(`${BASE_URL}`, {
         credentials: "include",
         method: "POST",

@@ -1,5 +1,5 @@
 const BASE_URL = `${import.meta.env.VITE_API_URL}/api/transactions`;
-import type { TransactionType } from "../types/types";
+import type { TransactionInput } from "../types/types";
 
 const getAll = async () => {
     const response = await fetch(BASE_URL, {
@@ -43,7 +43,7 @@ const deleteAll = async () => {
     return await response.json();
 };
 
-const create = async (transaction: TransactionType) => {
+const create = async (transaction: TransactionInput) => {
     const response = await fetch(`${BASE_URL}`, {
         credentials: "include",
         method: "POST",

@@ -17,8 +17,8 @@ function Menu({ onClose }: { onClose: () => void }) {
                     <button onClick={() => setIsManageOpen(!isManageOpen)} className="cursor-pointer hover:font-bold">Manage</button>
                     {isManageOpen &&
                         <div className="text-sm flex flex-col space-y-2 items-center justify-center">
-                            <a href="/manage/accounts" className="hover:text-blue-600 hover:underline">Accounts</a>
-                            <a href="/manage/accounts" className="hover:text-blue-600 hover:underline">Transactions</a>
+                            <a href="/manage/holdings" className="hover:text-blue-600 hover:underline">Holdings</a>
+                            <a href="/manage/transactions" className="hover:text-blue-600 hover:underline">Transactions</a>
                         </div>
                     }
                     <a href="/about" className="hover:text-blue-600 hover:underline">About</a>
