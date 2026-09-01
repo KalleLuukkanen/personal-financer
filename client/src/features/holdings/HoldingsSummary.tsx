@@ -21,7 +21,7 @@ function HoldingsSummary() {
                         <ul className="ml-2 text-lg">
                             {accounts.map((a) =>
                                 <li key={a.id}>
-                                    <p>{a.name}: {showingAmounts ? a.balance : "****"}</p>
+                                    <p>{a.name}: {showingAmounts ? `${a.balance} ➡️ ${a.goal ?? "No goal set"}` : "****"}</p>
                                 </li>
                             )}
                         </ul>
