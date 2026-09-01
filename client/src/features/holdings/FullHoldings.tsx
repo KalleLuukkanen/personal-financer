@@ -18,13 +18,13 @@ function FullHoldings() {
             </div>
 
             <div className="text-xl">
-                <p>Balances in full: {showingAmounts ? Number(holdingsBalance).toFixed(2) : "****"}</p>
-                <p>Goals in full: {showingAmounts ? Number(holdingsGoals).toFixed(2) : "****"}</p>
+                <p>Balances in total: {showingAmounts ? Number(holdingsBalance).toFixed(2) : "****"}</p>
+                <p>Goals in total: {showingAmounts ? Number(holdingsGoals).toFixed(2) : "****"}</p>
             </div>
             {accounts.length > 0 &&
                 <ul className="flex flex-wrap gap-4">
                     {accounts.map((a) =>
-                        <li key={a.id} className="flex flex-col space-y-2 rounded shadow-lg p-4 bg-gray-100">
+                        <li key={a.id} className="flex flex-col space-y-2 rounded shadow-lg p-2 bg-gray-100">
                             <Holding account={a} showingAmounts={showingAmounts} />
                         </li>
                     )}
