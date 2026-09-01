@@ -1,6 +1,6 @@
 import { useTransactions } from "../../context/TransactionsContext";
 
-function Transactions() {
+export default function TransactionsSummary() {
 
     const { transactions, income, expenses } = useTransactions();
 
@@ -37,5 +37,3 @@ function Transactions() {
         </div>
     )
 }
-
-export default Transactions;

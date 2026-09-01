@@ -2,7 +2,7 @@ import { useAccounts } from "../../context/AccountsContext";
 import { useState } from "react";
 import Holding from "./Holding";
 
-function FullHoldings() {
+export default function FullHoldings() {
     const { accounts } = useAccounts();
 
     const [showingAmounts, setShowingAmounts] = useState(true);
@@ -34,5 +34,3 @@ function FullHoldings() {
         </ div >
     )
 }
-
-export default FullHoldings;

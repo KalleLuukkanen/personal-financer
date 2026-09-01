@@ -12,7 +12,8 @@ export type TransactionType = {
     source: string;
     type: string;
     amount: number;
+    frequency: string;
     created_at: string;
 };
 
-export type TransactionInput = Omit<TransactionType, "id">;
+export type TransactionInput = Omit<TransactionType, "id" | "created_at">;

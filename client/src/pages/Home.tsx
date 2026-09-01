@@ -1,6 +1,6 @@
 import Chart from "../features/Chart";
 import HoldingsSummary from "../features/holdings/HoldingsSummary";
-import Transactions from "../features/transactions/Transactions";
+import TransactionsSummary from "../features/transactions/TransactionsSummary";
 
 function Home() {
     return (
@@ -8,9 +8,8 @@ function Home() {
             <Chart />
             <div className="flex flex-col space-y-6 shadow-lg rounded border border-gray-300 p-4">
                 <HoldingsSummary />
-                <Transactions />
+                <TransactionsSummary />
             </div>
-
         </div>
     )
 }
