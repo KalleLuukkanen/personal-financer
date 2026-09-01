@@ -7,6 +7,7 @@ import Register from "./features/auth/Register";
 import Layout from "./layouts/Layout";
 import ManageHoldings from "./features/holdings/ManageHoldings";
 import ManageTransactions from "./features/transactions/ManageTransactions";
+import Plan from "./features/planning/Plan";
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/manage/holdings" element={<ManageHoldings />} />
           <Route path="/manage/transactions" element={<ManageTransactions />} />
+          <Route path="/plan" element={<Plan />} />
         </Route>
       </Route>
     </Routes>

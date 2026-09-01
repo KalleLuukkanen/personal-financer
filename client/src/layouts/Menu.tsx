@@ -21,6 +21,7 @@ function Menu({ onClose }: { onClose: () => void }) {
                             <a href="/manage/transactions" className="hover:text-blue-600 hover:underline">Transactions</a>
                         </div>
                     }
+                    <a href="/plan" className="hover:text-blue-600 hover:underline">Plan</a>
                     <a href="/about" className="hover:text-blue-600 hover:underline">About</a>
                 </nav>
                 <button onClick={logout} className="mt-auto mb-4 rounded p-2 border bg-red-200 cursor-pointer">Log out</button>
