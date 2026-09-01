@@ -85,5 +85,16 @@ const updateGoal = async (id: number, goal: number) => {
     return await response.json();
 };
 
+const getHistory = async (id: number) => {
+    const response = await fetch(`${BASE_URL}/${id}/history`, {
+        credentials: "include",
+    });
+    if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.error || "History not found");
+    }
+    return await response.json();
+}
 
-export { getAll, getOne, deleteAll, deleteOne, create, updateBalance, updateGoal };
+
+export { getAll, getOne, deleteAll, deleteOne, create, updateBalance, updateGoal, getHistory };

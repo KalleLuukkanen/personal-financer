@@ -39,6 +39,7 @@ app.use("/api", (req, res, next) => {
 //accounts
 app.get("/api/accounts", accountsController.getAll);
 app.get("/api/accounts/:accountId", accountsController.getOne);
+app.get("/api/accounts/:accountId/history", accountsController.getHistory)
 app.delete("/api/accounts", accountsController.deleteAll);
 app.delete("/api/accounts/:accountId", accountsController.deleteOne);
 app.post("/api/accounts", accountsController.create);

@@ -10,6 +10,7 @@ type AccountsContextValue = {
     deleteAllAccounts: () => Promise<void>;
     updateBalance: (id: number, balance: number) => Promise<void>;
     updateGoal: (id: number, goal: number) => Promise<void>;
+    getHistory: (id: number) => Promise<AccountType[]>;
 };
 
 const AccountsContext = createContext<AccountsContextValue | null>(null);
@@ -53,8 +54,12 @@ export function AccountsProvider({ children }: { children: ReactNode }) {
         setAccounts((prev) => prev.map((a) => (a.id === id ? updated : a)));
     };
 
+    const getHistory: AccountsContextValue["getHistory"] = async (id: number) => {
+        return await accountsApi.getHistory(id);
+    };
+
     return (
-        <AccountsContext.Provider value={{ accounts, getAccount, createAccount, deleteAllAccounts, deleteAccount, updateBalance, updateGoal }}>
+        <AccountsContext.Provider value={{ accounts, getAccount, createAccount, deleteAllAccounts, deleteAccount, updateBalance, updateGoal, getHistory }}>
             {children}
         </AccountsContext.Provider>
     )
