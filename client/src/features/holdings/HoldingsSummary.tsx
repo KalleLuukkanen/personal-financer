@@ -1,7 +1,9 @@
 import { useAccounts } from "../../context/AccountsContext";
 
-function Holdings() {
+function HoldingsSummary() {
     const { accounts } = useAccounts();
+
+    const holdingsBalance = accounts.reduce((sum, a) => Number(sum) + Number((a.balance ?? 0)), 0);
 
     return (
         <div className="flex flex-col space-y-4">
@@ -17,6 +19,7 @@ function Holdings() {
                                 </li>
                             )}
                         </ul>
+                        <p className="text-xl ml-2">In total: {Number(holdingsBalance).toFixed(2)}</p>
                     </div>
                 </div>
             }
@@ -25,4 +28,4 @@ function Holdings() {
     )
 }
 
-export default Holdings;
+export default HoldingsSummary;

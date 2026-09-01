@@ -9,6 +9,9 @@ export default function Holding({ account, showingAmounts }: { account: AccountT
     const [newBalance, setNewBalance] = useState("");
     const [newGoal, setNewGoal] = useState("");
 
+    const [balance, setBalance] = useState(account.balance);
+    const [goal, setGoal] = useState(account.goal);
+
     const deleteHolding = async () => {
         if (!confirm("Are you sure you want to delete this holding?")) return;
         await deleteAccount(account.id);
@@ -21,12 +24,26 @@ export default function Holding({ account, showingAmounts }: { account: AccountT
                 <button className="ml-auto bg-red-100 p-1 rounded-lg cursor-pointer" onClick={deleteHolding}>🗑️</button>
             </div>
             <div className="text-lg ml-2">
-                {account.balance && <p>Balance: {showingAmounts ? account.balance : "****"}</p>}
-                {!account.balance &&
-                    <div className="rounded border border-gray-300">
+                {account.balance && !showingAmounts && <p>Balance: ****</p>}
+                {account.balance && showingAmounts &&
+                    <div className="flex items-center">
+                        <p>Balance:</p>
                         <input
                             id="balance"
                             name="balance"
+                            value={balance ?? ""}
+                            type="number"
+                            onChange={(e) => setBalance(Number(e.target.value))}
+                            className="p-1 w-30"
+                        />
+                    </div>
+
+                }
+                {!account.balance &&
+                    <div className="rounded border border-gray-300">
+                        <input
+                            id="new_balance"
+                            name="new_balance"
                             value={newBalance}
                             type="number"
                             autoComplete="off"
@@ -41,8 +58,8 @@ export default function Holding({ account, showingAmounts }: { account: AccountT
                 {!account.goal &&
                     <div className="rounded border border-gray-300">
                         <input
-                            id="goal"
-                            name="goal"
+                            id="new_goal"
+                            name="new_goal"
                             value={newGoal}
                             type="number"
                             min="1"
