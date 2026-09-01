@@ -45,10 +45,10 @@ const deleteAll = async (req: Request, res: Response) => {
 const create = async (req: Request, res: Response) => {
     const user_id = (req as any).userId;
     const transaction = req.body;
-    if (!transaction.type || !transaction.source || !transaction.amount) {
+    if (!transaction.type || !transaction.source || !transaction.amount || !transaction.frequency) {
         return res.status(400).json({ error: "Missing required parameters" });
     }
-    const created_transaction = await transactionsRepository.create(user_id, transaction.source, transaction.amount, transaction.type);
+    const created_transaction = await transactionsRepository.create(user_id, transaction.source, transaction.amount, transaction.type, transaction.frequency);
     if (!created_transaction) {
         return res.status(404).json({ error: "Could not create transaction" });
     }

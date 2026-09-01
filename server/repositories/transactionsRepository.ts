@@ -40,10 +40,10 @@ const deleteAll = async (user_id: string) => {
     return result;
 };
 
-const create = async (user_id: string, source: string, amount: number, type: string) => {
+const create = async (user_id: string, source: string, amount: number, type: string, frequency: string) => {
     const result = await sql`
-        INSERT INTO transactions (user_id, source, amount, type)
-        VALUES (${user_id}, ${source}, ${amount}, ${type})
+        INSERT INTO transactions (user_id, source, amount, type, frequency)
+        VALUES (${user_id}, ${source}, ${amount}, ${type}, ${frequency})
         RETURNING *;
     `;
     return result[0];
