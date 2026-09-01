@@ -1,6 +1,6 @@
 import { createContext, useContext, useState, useEffect, useRef, type ReactNode } from "react";
 import * as accountsApi from "../api/accountsApi";
-import type { AccountType, AccountInput } from "../types/types";
+import type { AccountType, AccountInput, HistoryPoint } from "../types/types";
 
 type AccountsContextValue = {
     accounts: AccountType[];
@@ -10,7 +10,7 @@ type AccountsContextValue = {
     deleteAllAccounts: () => Promise<void>;
     updateBalance: (id: number, balance: number) => Promise<void>;
     updateGoal: (id: number, goal: number) => Promise<void>;
-    getHistory: (id: number) => Promise<AccountType[]>;
+    getHistory: (id: number) => Promise<HistoryPoint[]>;
 };
 
 const AccountsContext = createContext<AccountsContextValue | null>(null);

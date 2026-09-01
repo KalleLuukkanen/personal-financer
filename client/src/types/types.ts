@@ -17,3 +17,10 @@ export type TransactionType = {
 };
 
 export type TransactionInput = Omit<TransactionType, "id" | "created_at">;
+
+export type HistoryPoint = {
+    id: number;
+    account_id: number;
+    balance: number;
+    recorded_at: string;
+};

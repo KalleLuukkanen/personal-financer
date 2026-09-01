@@ -78,11 +78,11 @@ const updateGoal = async (user_id: string, id: number, new_goal: number) => {
     return result[0];
 };
 
-const getHistory = async (user_id: string, account_id: number) => {
+const getHistory = async (account_id: number) => {
     const result = await sql`
         SELECT *
         FROM account_balance_history
-        WHERE user_id = ${user_id} AND account_id = ${account_id};
+        WHERE account_id = ${account_id};
     `;
     return result;
 };

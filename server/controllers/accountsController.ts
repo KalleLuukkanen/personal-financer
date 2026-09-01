@@ -90,12 +90,11 @@ const updateGoal = async (req: Request, res: Response) => {
 };
 
 const getHistory = async (req: Request, res: Response) => {
-    const user_id = (req as any).userId;
     const account_id = Number(req.params.accountId);
     if (!Number.isInteger(account_id)) {
         return res.status(400).json({ error: "Invalid id" });
     }
-    const history = await accountsRepository.getHistory(user_id, account_id);
+    const history = await accountsRepository.getHistory(account_id);
     return res.status(200).json(history);
 };
 
