@@ -10,7 +10,7 @@ export default function Transaction({ transaction }: { transaction: TransactionT
         if (transaction.frequency === "weekly") return "per week";
         if (transaction.frequency === "monthly") return "per month";
         if (transaction.frequency === "yearly") return "per year";
-    }
+    };
 
     const [amount, setAmount] = useState(transaction.amount);
 
