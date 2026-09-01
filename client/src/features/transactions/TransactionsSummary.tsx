@@ -13,8 +13,10 @@ export default function TransactionsSummary() {
                         <a className="text-xl">Income</a>
                         <ul className="ml-2 text-lg">
                             {income.map((t) => (
-                                <li key={t.id}>
-                                    <p></p>
+                                <li className="flex items-center space-x-1" key={t.id}>
+                                    <p className="text-lg">{t.source}:</p>
+                                    <p>{t.type === "expense" && "- "}{t.amount}</p>
+                                    <p>{t.frequency}</p>
                                 </li>
                             ))}
                             {income.length === 0 && <p>No income, click on transactions to add.</p>}
@@ -24,8 +26,10 @@ export default function TransactionsSummary() {
                         <p className="text-xl">Expenses</p>
                         <ul className="ml-2 text-lg">
                             {expenses.map((t) => (
-                                <li key={t.id}>
-                                    <p></p>
+                                <li className="flex items-center space-x-1" key={t.id}>
+                                    <p className="text-lg">{t.source}:</p>
+                                    <p>{t.type === "expense" && "-"}{t.amount}</p>
+                                    <p>{t.frequency}</p>
                                 </li>
                             ))}
                             {income.length === 0 && <p>No expenses added, click on transactions to add.</p>}
