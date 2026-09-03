@@ -8,6 +8,8 @@ import { useEffect } from "react";
 export default function Home() {
     const { accounts } = useAccounts();
 
+    const net_worth = accounts.reduce((sum, a) => Number(sum) + Number((a.balance ?? 0)), 0);
+
     const [currentAccount_id, setCurrentAccount_id] =
         useState<number | null>(null);
 
@@ -18,8 +20,16 @@ export default function Home() {
     }, [accounts, currentAccount_id]);
 
     return (
-        <div className="grid grid-cols-[2fr_1fr] gap-1">
-            <div className="space-y-4">
+        <div className="flex flex-col space-y-6">
+            <div className="space-y-4 shadow-lg p-2 border border-gray-300 rounded w-64">
+                <p className="text-3xl font-bold">Networth:</p>
+                <p className="text-2xl ml-2">{net_worth.toFixed(2)} €</p>
+            </div>
+            <div className="grid grid-cols-2 gap-2 divide-x shadow-lg p-2 border border-gray-300 rounded">
+                <HoldingsSummary />
+                <TransactionsSummary />
+            </div>
+            <div className="space-y-4 shadow-lg p-2 border border-gray-300 rounded">
                 <select
                     value={currentAccount_id ?? ""}
                     onChange={(e) =>
@@ -34,11 +44,6 @@ export default function Home() {
                     ))}
                 </select>
                 <Chart accountId={currentAccount_id} />
-            </div>
-
-            <div className="flex flex-col space-y-6 shadow-lg rounded border border-gray-300 p-4">
-                <HoldingsSummary />
-                <TransactionsSummary />
             </div>
         </div>
     );

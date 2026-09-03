@@ -7,6 +7,9 @@ export default function TransactionsSummary() {
 
     const [showingAmounts, setShowingAmounts] = useState(true);
 
+    const revenue = (income.reduce((sum, a) => Number(sum) + Number((a.amount ?? 0)), 0)
+        - (expenses.reduce((sum, a) => Number(sum) + Number((a.amount ?? 0)), 0))).toFixed(2);
+
     return (
         <div className="flex flex-col space-y-4">
             <div className="flex">
@@ -41,6 +44,7 @@ export default function TransactionsSummary() {
                             {income.length === 0 && <p>No expenses added, click on transactions to add.</p>}
                         </ul>
                     </div>
+                    <p className="text-2xl ml-2">Revenue per month: {revenue}</p>
                 </div>
             }
             {transactions.length === 0 && <p>No transactions added, click on transactions to add some.</p>}

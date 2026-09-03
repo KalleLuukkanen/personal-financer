@@ -4,9 +4,10 @@ import { useState } from "react";
 function HoldingsSummary() {
     const { accounts } = useAccounts();
 
-    const holdingsBalance = accounts.reduce((sum, a) => Number(sum) + Number((a.balance ?? 0)), 0);
-
     const [showingAmounts, setShowingAmounts] = useState(true);
+
+    const assets = accounts.filter((a) => (a.balance ?? 0) >= 0);
+    const liabilities = accounts.filter((a) => (a.balance ?? 0) < 0);
 
     return (
         <div className="flex flex-col space-y-4">
@@ -15,18 +16,28 @@ function HoldingsSummary() {
                 <button onClick={() => setShowingAmounts(!showingAmounts)} className="ml-6 cursor-pointer text-xl">{showingAmounts ? "🔒" : "🔓"}</button>
             </div>
             {accounts.length > 0 &&
-                <div className="space-y-4">
-                    <div className="space-y-2">
-                        <p className="text-xl">Balances</p>
+                <div className="grid grid-cols-2 gap-1">
+                    <div>
+                        <p className="text-xl">Assets</p>
                         <ul className="ml-2 text-lg">
-                            {accounts.map((a) =>
+                            {assets.map((a) =>
                                 <li key={a.id}>
-                                    <p>{a.name}: {showingAmounts ? `${a.balance} ➡️ ${a.goal ?? "No goal set"}` : "****"}</p>
+                                    <p>{a.name}: {showingAmounts ? `${a.balance} €` : "****"}</p>
                                 </li>
                             )}
                         </ul>
-                        <p className="text-xl ml-2">In total: {showingAmounts ? Number(holdingsBalance).toFixed(2) : "****"}</p>
                     </div>
+                    <div>
+                        <p className="text-xl">Liabilities</p>
+                        <ul className="ml-2 text-lg">
+                            {liabilities.map((a) =>
+                                <li key={a.id}>
+                                    <p>{a.name}: {showingAmounts ? `${a.balance} €` : "****"}</p>
+                                </li>
+                            )}
+                        </ul>
+                    </div>
+
                 </div>
             }
             {accounts.length === 0 && <p>You haven't added any holdings yet, click above to get started!</p>}

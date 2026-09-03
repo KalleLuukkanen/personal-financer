@@ -23,7 +23,7 @@ export default function FullTransactions() {
                         <ul className="flex flex-col space-y-2">
                             {income.length === 0 && <li>You have no income added</li>}
                             {income.map((t) =>
-                                <li key={t.id}>
+                                <li className="border border-gray-300 p-1" key={t.id}>
                                     <Transaction transaction={t} />
                                 </li>
                             )}
@@ -35,7 +35,7 @@ export default function FullTransactions() {
                         <ul className="flex flex-col space-y-2">
                             {expenses.length === 0 && <li>You have no expenses added</li>}
                             {expenses.map((t) =>
-                                <li key={t.id}>
+                                <li className="border border-gray-300 p-1" key={t.id}>
                                     <Transaction transaction={t} />
                                 </li>
                             )}
